@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio Moderno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary: #0EA5E9;
+            --secondary: #8B5CF6;
+            --dark: #1E1E2C;
+            --light: #F9FAFB;
+            --gray: #64748B;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        header h1 { font-size: 2.5rem; }
+        header p { font-size: 1.2rem; }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        #sobre-mi { display: flex; align-items: center; gap: 3rem; padding: 3rem 0; flex-wrap: wrap; }
+        .profile-img {
+            width: 200px; height: 200px; border-radius: 50%;
+            object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .bio h2 { font-size: 2rem; color: var(--primary); }
+        .bio p { color: var(--gray); margin-bottom: 1rem; }
+
+        #stack { padding: 3rem 0; background: white; border-radius: 16px; margin: 2rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        body.dark-mode #stack { background: var(--dark); }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 1.5rem; }
+        .tech-item { background: var(--light); padding: 1.5rem; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        body.dark-mode .tech-item { background: #2A2A3A; }
+        .tech-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(37,99,235,0.1); }
+        .tech-item img { width: 50px; height: 50px; margin-bottom: 1rem; }
+
+        #proyectos { padding: 4rem 0; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 2rem; }
+        .project-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        body.dark-mode .project-card { background: #2A2A3A; }
+        .project-card:hover { transform: scale(1.03); }
+        .project-img { width: 100%; height: 200px; object-fit: cover; }
+        .project-info { padding: 1.5rem; }
+        .project-info h3 { color: var(--primary); }
+        .project-info p { color: var(--gray); margin-bottom: 1rem; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { background: #e0e7ff; color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; }
+
+        footer { text-align: center; padding: 3rem 0; background: var(--dark); color: white; margin-top: 4rem; }
+        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0; }
+        .social-links a { color: white; font-size: 1.5rem; }
+
+        @media (max-width:768px) {
+            #sobre-mi { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+        <div class="container">
+            <h1>Mi portafolio</h1>
+            <p>Sergio Yahir Angel Alva</p>
+            <p>Desarrollador FullStack</p>
+        </div>
+    </header>
+
+    <section id="sobre-mi" class="container">
+        <!-- Imagen mejorada con srcset -->
+        <img src="https://i.postimg.cc/d70T6MGv/Imagen-de-Whats-App-2025-06-19-a-las-17-10-05-d4876eb5.jpg"
+             srcset="https://i.postimg.cc/d70T6MGv/Imagen-de-Whats-App-2025-06-19-a-las-17-10-05-d4876eb5.jpg 1x,
+                     https://i.postimg.cc/d70T6MGv/Imagen-de-Whats-App-2025-06-19-a-las-17-10-05-d4876eb5.jpg 2x"
+             alt="Foto de perfil" class="profile-img" width="200" height="200">
+        <div class="bio">
+            <h2>Sobre mí</h2>
+            <p>¡Hola! Soy Sergio, estudiante de último año de Ingeniería en Sistemas Computacionales, apasionado por la tecnología y el desarrollo de software. Mi principal enfoque es el desarrollo de apps modernas, funcionales y responsivas. Además, estoy familiarizado con herramientas y metodologías ágiles que permiten adaptarme a entornos dinámicos de trabajo.</p>
+            <p>Cuando no estoy programando, diseñando o planeando, disfruto pasar tiempo con mi familia y aprender algo nuevo.</p>
+        </div>
+    </section>
+
+    <section id="stack" class="container">
+        <h2 class="section-title">Mi Stack</h2>
+        <div class="tech-grid">
+            <!-- Íconos que ya tienes -->
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><h3>HTML5</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><h3>CSS3</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><h3>JavaScript</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><h3>Git</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><h3>Figma</h3></div>
+            <!-- Íconos nuevos -->
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira"><h3>Jira</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><h3>Python</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><h3>React</h3></div>
+            <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"><h3>SQL</h3></div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="project-grid">
+            <!-- Proyectos que ya tienes -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="Proyecto 1" class="project-img">
+                <div class="project-info">
+                    <h3>Landing Page E-commerce</h3>
+                    <p>Diseño y desarrollo de una landing page para una marca de moda sostenible.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600" alt="Proyecto 2" class="project-img">
+                <div class="project-info">
+                    <h3>App de Clima</h3>
+                    <p>Aplicación que muestra el clima actual usando una API pública.</p>
+                    <div class="project-tags"><span class="tag">JavaScript</span><span class="tag">API</span></div>
+                </div>
+            </div>
+            <!-- Proyectos nuevos -->
+            <div class="project-card">
+                <img src="https://i.postimg.cc/NF023rL4/rserva.png" alt="R Serva" class="project-img">
+                <div class="project-info">
+                    <h3>R Serva</h3>
+                    <p>Aplicación para gestionar reservas en restaurantes en tiempo real.</p>
+                    <div class="project-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">API</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://i.postimg.cc/MGW63Jn0/mohamed-nohassi-2i-Ur-K025cec-unsplash.jpg" alt="ChatBot" class="project-img">
+                <div class="project-info">
+                    <h3>ChatBot Inteligente</h3>
+                    <p>Asistente virtual para atención a clientes, entrenado con procesamiento de lenguaje natural.</p>
+                    <div class="project-tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">IA</span></div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://i.postimg.cc/RVKJj9Z2/Captura-de-pantalla-2025-06-19-182303.png" alt="Visión Artificial" class="project-img">
+                <div class="project-info">
+                    <h3>Visión Artificial</h3>
+                    <p>Sistema de visión computacional para reconocer objetos en tiempo real.</p>
+                    <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">IA</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>¿Trabajamos juntos?</h3>
+            <p>Contáctame para colaboraciones o proyectos.</p>
+            <div class="social-links">
+                <a href="https://github.com/Angel-log-in?tab=repositories"> </a><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/sergio-yahir-angel-alva-076412358"><i class="fab fa-linkedin"></i></a>
+                <a href="syangelalv1915gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p>© 2025 Mi Portafolio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode')
+        }
+    </script>
+</body>
+</html>
